@@ -4,8 +4,8 @@ const userController = require("../Controllers/userController.js");
 
 router.get("/formulario", userController.formularioInscripcion);
 
-router.post('/users/formulario', userController.createUser);
-
+router.post('/formulario', userController.createUser);
+//router.get('/felicitaciones', userController.felicitaciones);
 
 
 module.exports = router;

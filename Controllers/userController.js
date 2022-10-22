@@ -8,6 +8,7 @@ const userController = {
         res.render('formularioInscripcion');
     },
     createUser: (req, res) => {
+        console.log(req.body);
         db.User.create({
             user_name: req.body.user_name,
             user_mail: req.body.user_mail,
@@ -15,12 +16,14 @@ const userController = {
             user_message: req.body.user_message,
             user_message2: req.body.user_message2,
             user_message3: req.body.user_message3, 
-            area:req.body.area
+            area: req.body.area
         })
-        .then((User)=> {
-            res.render('felicitaciones')
+        .then(()=> {
+            res.redirect('/')
         })
-    }
+        .catch(error => res.send(error))
+    },
+    
 
 }
 

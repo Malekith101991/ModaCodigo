@@ -8,5 +8,9 @@ Amigo secreto  es un sitio web creado para la jugar  y conocer las fechas de las
 ### Esteban Hernandez
 ### Mateo duque .
 
+#### Como lanzar el proyecto:
+
+##### abir el archivo scriptDB.sql y copiarlo en el programa de su preferiencia de base de datos y ejecutar para que te abra el  programa . 
+
 
 Hackaton Código Moda

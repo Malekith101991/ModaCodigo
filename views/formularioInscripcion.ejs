@@ -5,57 +5,102 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Inscripción Amigo Secreto Código Moda</title>
+    <link rel="stylesheet" href="/css/formularioIncripcion.css" type="text/css">
 </head>
 <body>
 
-  <!-------- MENU DE NAVEGACIÓN -------->
+  <!-- MENU NAVEGACIÓN -->
   <%- include("./partials/header.ejs")%>
-    <h2>Formulario de Inscripción</h2>
-    <form action="/users/formulario" method="post" id="userRegisterForm">
-        <ul>
-         <li>
-           <label for="name">Nombre:</label>
-           <input type="text" id="name" name="user_name">
-         </li>
-         <li>
-           <label for="mail">Correo electrónico:</label>
-           <input type="email" id="mail" name="user_mail">
-         </li>
-         <li>
-            <label for="number">Celular:</label>
-            <input type="number" id="celular" name="user_celphone">
-          </li>
-         <li>
-           <label for="msg">¿Que me gusta?:</label>
-           <textarea id="msg" name="user_message"></textarea>
-         </li>
-         <li>
-            <label for="msg">¿Que no me gusta?:</label>
-            <textarea id="msg" name="user_message2"></textarea>
-          </li>
-          <li>
-            <label for="msg">¿Tengo algún tipo de alergias?:</label>
-            <textarea id="msg" name="user_message3"></textarea>
-          </li>
-         <li>
-            <select data-label="Area" name="area">
-                <option disabled selected>Selecciona tu Area</option>
-                <option value="Marca">Equipo de Marca</option>
-                <option value="Mercadeo">Equipo de Mercadeo</option>
-                <option value="Abastecimiento">Equipo de Abastecimiento</option>
-                <option value="Comercial">Equipo Comercial</option>
-                <option value="Industrial">Equipo Industrial</option>
-                <option value="Manufactura">Equipo de Manufactura</option>
-                <option value="Logistica">Equipo de Logística</option>
-                <option value="Tecnologia">Equipo de Tecnología</option>
-                <option value="Financiero">Equipo Financiero</option>
-                <option value="Desarrollo">Equipo de Desarrollo</option>
-                <option value="Juridico">Equipo Jurídico</option>
-                <option value="Nuevos Negocios">Equipo de Nuevos Negocios</option>
-            </select>
-          </li>
-          <button type="submit">Enviar Inscripción</button>
-        </ul>
-       </form>
+
+  <h2>Regístrate en el Amigo Secreto 2022</h2>
+
+  <form action="/users/formulario" method="post" id="userRegisterForm">
+      <ul>
+
+       <li>
+         <label for="name">Nombre:</label>
+         <input type="text" id="name" name="name">
+       </li><br>
+
+       <li>
+         <label for="password">Contraseña:</label>
+         <input type="password" id="password" name="contrasena">
+       </li><br>
+       
+       <select class="rol" data-label="rol" name="rol">
+           <option disabled selected>Seleccionar rol</option>
+           <option class="a" value="admin">Administrador</option>
+           <option class="p" value="participante">Participante</option>
+
+       </select><br>
+       <div class="admin">
+       <li>
+          <label for="topicGroup">Tema del Amigo Secreto:</label>
+          <input type="text" id="topicGroup" name="topicGroup">
+        </li><br>
+       <li>
+         <label for="NameGroup">Nombre del grupo:</label>
+         <textarea id="msg" name="nameGroup"></textarea>
+       
+       </li><br>
+       <li>
+          <label for="fecha">Fecha Endulzada 1:</label>
+          <input type="date" name="fechaEndulzada1" data-label="fechaEndulzada1">
+        </li><br>
+        <li>
+          <label for="msg">Valor Endulzada 1:</label>
+          <input type="text" name="valorEndulzada1" data-label="valorEndulzada1">
+        </li><br>
+
+        <li>
+          <label for="fecha">Fecha Endulzada 2:</label>
+          <input type="date" name="fechaEndulzada2" data-label="fechaEndulzada2">
+        </li><br>
+        <li>
+          <label for="msg">Valor Endulzada 2:</label>
+          <input type="text" name="valorEndulzada2" data-label="valorEndulzada2">
+        </li><br>
+       <li>
+
+        <li class="inputBox">
+          <label>Descubrimiento</label>
+          <input type="date" name="fechaDescubrimiento" data-label="fechaDescubrimiento">
+          <i></i>  
+        </li><br>
+        <li>
+          <label for="msg">Valor Descubrimiento:</label>
+          <input type="text" name="valorDescubrimiento" data-label="valorDescubrimiento">
+        </li><br>
+        </div>  <br>                    
+      
+        <li class="inputBox">
+          <textarea placeholder="Gustos" type="text" name="likes" data-label="likes"></textarea>
+          <i></i>                        
+        </li><br>
+
+        <li class="inputBox">
+          <textarea placeholder="Disgustos" type="text" name="dislikes" data-label="dislikes"></textarea>
+          <i></i>                        
+        </li><br>
+
+        <li class="inputBox">
+          <textarea placeholder="Alergias" type="text" name="allergies" data-label="allergies"></textarea>
+          <i></i>                        
+        </li><br>
+
+         <!--BOTONES REGISTRAR Y YA TENGO CUENTA-->
+                  
+         <button type="submit">Enviar Inscripción</button>    
+  
+         <a class = "registered" href="/user/login">Ya tengo una cuenta</a>
+
+      </ul>
+     </form>
+
+    <!--- FOOTER: PIE DE PÁGINA --->
+  
+    <%- include("./partials/footer.ejs")%>
+
 </body>
+<script src="/js/formulario.js"></script>
 </html>

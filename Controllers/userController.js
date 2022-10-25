@@ -5,21 +5,32 @@ const path = require ('path');
 const userController = {
 
     formularioInscripcion: (req, res) => {
-        res.render('formularioInscripcion');
+        db.Area.findAll()
+        .then(areas => {
+            res.render('formularioInscripcion', { areas })
+        })
+        .catch(error => res.send(error)) 
     },
     createUser: (req, res) => {
         console.log(req.body);
         db.User.create({
-            user_name: req.body.user_name,
-            user_mail: req.body.user_mail,
-            user_celphone: req.body.user_celphone,
-            user_message: req.body.user_message,
-            user_message2: req.body.user_message2,
-            user_message3: req.body.user_message3, 
-            area: req.body.area
+            name: req.body.name,
+            contrasena: req.body.contrasena,
+            rol: req.body.rol,
+            topicGroup: req.body.topicGroup,
+            nameGroup: req.body.nameGroup,
+            fechaEndulzada1: req.body.fechaEndulzada1,
+            valorEndulzada1: req.body.valorEndulzada1,
+            fechaEndulzada2: req.body.fechaEndulzada2,
+            valorEndulzada2: req.body.valorEndulzada2,   
+            fechaDescubrimiento: req.body.fechaDescubrimiento,
+            valorDescubrimiento: req.body.valorDescubrimiento,
+            likes: req.body.likes,
+            dislikes: req.body.dislikes,
+            allergies: req.body.allergies
         })
-        .then(()=> {
-            res.redirect('/')
+        .then(()=>{
+        res.render('felicitaciones')   
         })
         .catch(error => res.send(error))
     },

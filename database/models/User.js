@@ -2,30 +2,51 @@ module.exports = (sequelize, dataTypes) => {
     let alias = 'User';
     let cols = {
         id: {
-        type: dataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
+            type: dataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
         },
-        user_name: {
+        name: {
             type: dataTypes.STRING
         },
-        user_mail: {
+        contrasena: {
             type: dataTypes.STRING
         },
-        user_celphone: {
+        rol: {
+            type: dataTypes.STRING
+        },
+        topicGroup: {
             type: dataTypes.STRING
         }
         ,
-        user_message: {
+        nameGroup: {
             type: dataTypes.STRING
         },
-        user_message2: {
+        fechaEndulzada1: {
+            type: dataTypes.DATE
+        },
+        valorEndulzada1: {
             type: dataTypes.STRING
         },
-        user_message3: {
+        fechaEndulzada2: {
+            type: dataTypes.DATE
+        },
+        valorEndulzada2: {
             type: dataTypes.STRING
         },
-        area: {
+        fechaDescubrimiento: {
+            type: dataTypes.DATE
+        },
+        valorDescubrimiento: {
+            type: dataTypes.STRING
+        },
+        likes: {
+            type: dataTypes.STRING
+        },
+        dislikes: {
+            type: dataTypes.STRING
+        },
+        allergies: {
             type: dataTypes.STRING
         }
     };
@@ -34,11 +55,5 @@ module.exports = (sequelize, dataTypes) => {
     }
     const User = sequelize.define(alias, cols, config);
 
-    User.associate = function(models) {
-        User.belongsTo(models.Rol, { 
-            as: "rol", 
-            foreignKey: "rol_id"
-        })
-    }
     return User
 }

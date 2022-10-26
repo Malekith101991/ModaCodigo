@@ -1,37 +1,40 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'User';
+    let alias = 'Group';
     let cols = {
         id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        name: {
+        topicGroup: {
             type: dataTypes.STRING
         },
-        contrasena: {
+        nameGroup: {
             type: dataTypes.STRING
         },
-        email: {
+        fechaEndulzada1: {
+            type: dataTypes.DATE
+        },
+        valorEndulzada1: {
             type: dataTypes.STRING
         },
-        rol: {
+        fechaEndulzada2: {
+            type: dataTypes.DATE
+        },
+        valorEndulzada2: {
             type: dataTypes.STRING
         },
-        likes: {
+        fechaDescubrimiento: {
+            type: dataTypes.DATE
+        },
+        valorDescubrimiento: {
             type: dataTypes.STRING
         },
-        dislikes: {
-            type: dataTypes.STRING
-        },
-        allergies: {
-            type: dataTypes.STRING
-        }
     };
     let config = {
         timestamps: false
     }
-    const User = sequelize.define(alias, cols, config);
+    const Group = sequelize.define(alias, cols, config);
 
-    return User
+    return Group
 }

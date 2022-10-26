@@ -3,7 +3,7 @@ const path = require ('path');
 
 const groupController = {
 
-    formularioGroup: (req, res) => {
+    crear: (req, res) => {
         res.render('formularioGroup')
     },
 
@@ -19,7 +19,7 @@ const groupController = {
             valorDescubrimiento: req.body.valorDescubrimiento
         })
         .then(()=>{
-            res.redirect('formularioInscripcion')
+            res.render('formularioInscripcion')
         })
         .catch(error => res.send(error))
     },

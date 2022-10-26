@@ -7,53 +7,65 @@
     <title>Formulario de Inscripción Amigo Secreto Código Moda</title>
     <link rel="stylesheet" href="/css/formularioIncripcion.css" type="text/css">
 </head>
+  
+
 <body>
 
-  <!-- MENU NAVEGACIÓN -->
-  <%- include("./partials/header.ejs")%>
+<!-- MENU NAVEGACIÓN -->
+<%- include("./partials/header.ejs")%>
 
   <h2>Regístrate en el Amigo Secreto 2022</h2>
 
-  <form action="/users/formulario" method="post" id="userRegisterForm">
-      <ul>
+  <form action="/users/crear" method="post" id="userRegisterForm">
+      <div>
+         <label for="name">¿Cuál es tu nombre?</label>
+         <input placeholder="Nombre" type="text" name="name">
+      </div>
 
-       <li>
-         <label for="name">Nombre:</label>
-         <input type="text" id="name" name="name">
-       </li><br>
+      <div>
+         <label for="password">Digita una contraseña:</label>
+         <input placeholder="Contraseña" type="password" name="contrasena">
+      </div>
 
-       <li>
-        <label for="email">Email:</label>
-        <input type="text" id="name" name="name">
-      </li><br>
-
-       <li>
-         <label for="password">Contraseña:</label>
-         <input type="password" id="password" name="contrasena">
-       </li><br>
-       
-       <select class="rol" data-label="rol" name="rol">
-           <option disabled selected>Seleccionar rol</option>
-           <option class="a" value="admin">Administrador</option>
-           <option class="p" value="participante">Participante</option>
-
-       </select><br>
-                  
+      <div>
+        <label for="email">¿Cuál es tu Email?</label>
+        <input placeholder="Email" type="text" name="name">
+      </div>
       
-        <li class="inputBox">
-          <textarea placeholder="Gustos" type="text" name="likes" data-label="likes"></textarea>
-          <i></i>                        
-        </li><br>
+      <div>
+        <label for="">¿Cuál es tu rol dentro de este grupo?:</label>
+          <select name="rol">
+            <option disabled selected>Seleccionar rol</option>
+            <option class="a" value="admin">Administrador</option>
+            <option class="p" value="participante">Participante</option>
+          </select>
+      </div>
 
-        <li class="inputBox">
-          <textarea placeholder="Disgustos" type="text" name="dislikes" data-label="dislikes"></textarea>
-          <i></i>                        
-        </li><br>
+      <div>
+        <label for="">¿Cuál es el nombre de tu grupo?</label>
+          <select name="group">
+            <% for (let i = 0; i < groups.length; i++ ) { %>
+              <option value="<%=groups[i].id%>">
+                <%=groups[i].name%>
+              </option>
+              <% } %>
+          </select>
+      </div> 
+      
+      <div class="inputBox">
+        <label for="likes">¿Qué te gusta comer?</label>
+        <textarea type="text" name="likes"></textarea>                     
+      </div>
 
-        <li class="inputBox">
-          <textarea placeholder="Alergias" type="text" name="allergies" data-label="allergies"></textarea>
-          <i></i>                        
-        </li><br>
+      <div class="inputBox">
+        <label for="dislikes">¿Qué no te gusta?</label>
+        <textarea type="text" name="dislikes"></textarea>                     
+      </div>
+
+      <div class="inputBox">
+        <label for="allergies">¿Tienes alguna alergia?</label>
+        <textarea type="text" name="allergies"></textarea>                     
+      </div>
 
          <!--BOTONES REGISTRAR Y YA TENGO CUENTA-->
                   
@@ -61,8 +73,7 @@
   
          <a class = "registered" href="/user/login">Ya tengo una cuenta</a>
 
-      </ul>
-     </form>
+  </form>
 
     <!--- FOOTER: PIE DE PÁGINA --->
   

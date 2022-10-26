@@ -18,6 +18,9 @@ module.exports = (sequelize, dataTypes) => {
         rol: {
             type: dataTypes.STRING
         },
+        grupo_id:{
+            type: dataTypes.INTEGER
+        },
         likes: {
             type: dataTypes.STRING
         },
@@ -29,9 +32,17 @@ module.exports = (sequelize, dataTypes) => {
         }
     };
     let config = {
+        tableName: "users",
         timestamps: false
     }
-    const User = sequelize.define(alias, cols, config);
+    let User = sequelize.define(alias, cols, config);
+
+    User.associate = function(models){
+        User.belongsTo(models.Group,{
+            as: 'grupos',
+            foreignKey: "group_id"
+        });
+    }
 
     return User
 }

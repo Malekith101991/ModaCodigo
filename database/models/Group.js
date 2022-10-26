@@ -1,5 +1,6 @@
 module.exports = (sequelize, dataTypes) => {
     let alias = 'Group';
+    
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -32,9 +33,17 @@ module.exports = (sequelize, dataTypes) => {
         },
     };
     let config = {
-        timestamps: false
+        timestamps: false,
+        tableName: "groups"
     }
-    const Group = sequelize.define(alias, cols, config);
+    let Group = sequelize.define(alias, cols, config);
+
+    Group.associate = function(models){
+        Group.hasMany(models.User,{
+            as: 'usuarios',
+            foreignKey: "group_id"
+        });
+    }
 
     return Group
 }

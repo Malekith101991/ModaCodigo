@@ -5,7 +5,10 @@ const path = require ('path');
 const userController = {
 
     formularioInscripcion: (req, res) => {
-            res.render('formularioInscripcion')
+            db.Group.findAll()
+                .then(function(groups){
+                    return res.render('formularioInscripcion', { groups:groups });
+                })
         },
     
     createUser: (req, res) => {

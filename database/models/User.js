@@ -45,11 +45,5 @@ module.exports = (sequelize, dataTypes) => {
         });
     }
 
-    User.associate = function (models) {
-        User.belongsTo(models.Group,{
-            as: "group",
-            foreignKey: "group_id"
-        })
-    }
     return User
 }

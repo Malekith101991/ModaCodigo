@@ -29,6 +29,9 @@ module.exports = (sequelize, dataTypes) => {
         },
         valorDescubrimiento: {
             type: dataTypes.INTEGER
+        },
+        lugarDescubrimiento: {
+            type: dataTypes.INTEGER
         }
     };
     let config = {

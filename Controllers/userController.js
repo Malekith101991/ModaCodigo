@@ -5,7 +5,7 @@ const path = require('path');
 const userController = {
 
     nuevoGrupo: (req, res) => {
-        res.render('grupos')
+        return res.render('grupos')
     },
     crearGrupo: (req, res) => {
         db.Group.create(
@@ -18,12 +18,13 @@ const userController = {
                 valorEndulzada2: req.body.valorEndulzada2,
                 fechaDescubrimiento: req.body.fechaDescubrimiento,
                 valorDescubrimiento: req.body.valorDescubrimiento,
+                lugarDescubrimiento: req.body.lugarDescubrimiento
 
             })
             .then(() => {
-                res.redirect('/')
+                return res.render('index')
             })
-            .catch(error => res.send(error))
+            //.catch(error => res.send(error))
     },
     nuevoUsuario: (req, res) => {
         let userId = req.params.id;
@@ -31,7 +32,7 @@ const userController = {
         let promGrupos = db.Group.findAll();
         Promise.all([promUser, promGrupos])
             .then(([User, grupo]) => {
-                res.render('formularioInscripcion', { User, grupo })
+                return res.render('formularioInscripcion', { User, grupo })
             })
     },
     crearUsuario: (req, res) => {
@@ -46,34 +47,15 @@ const userController = {
             allergies: req.body.allergies
         })
             .then(() => {
-                res.render('felicitaciones')
+                return res.render('index')
             })
     },
-    editUser: (req, res) => {
-        let userId = req.params.id;
-        let promUser = db.User.findByPk(userId, { include: ['group'] });
-        let promGrupos = db.Group.findAll();
-        Promise.all([promUser, promGrupos])
-            .then(([User, grupo]) => {
-                res.render('grupos', { User, grupo })
-            })
-            .catch(error => res.send(error))
-    },
-
-    updateUser: (req, res) => {
-        db.User.update({
-            group_id: req.body.group_id,
-        },
-            {
-                where: { id: req.params.id }
-            })
-            .then(() => {
-                res.render('felicitaciones')
-            })
-            .catch(error => res.send(error))
-    },
-
-
+    buscarAmigo: (req, res) => {
+        db.User.findAll()
+        .then((users) => {
+            return res.render('felicitaciones', { users })
+        })
+    }
 }
 
 module.exports = userController;

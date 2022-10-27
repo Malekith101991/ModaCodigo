@@ -5,12 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Felicitaciones</title>
+    <link rel="stylesheet" href="/css/felicitaciones.css">
 </head>
 <!-- MENU NAVEGACIÓN -->
 <%- include("./partials/header.ejs")%>
 <body>
-    <h1>Felicitaciones estas registrado en el Amigo Secreto Código Moda</h1>
-    <p>Tu amigo secreto es: </p>
-    <p>Tu labor será: </p>
+    <h1>Ahora encuentra tu Amigo Secreto Código Moda</h1>
+
+<div class="select-wrap" id="personaEnvuelta">
+    <div class="opciones">
+    <% users.forEach(g => { %>  
+     <option value="<%= g.id %>"  class="option" id="<% g.name%>"><%= g.name %></option>
+     <% }); %>
+    </div>
+    <select id="persona">
+        <span class="arrow"></span>
+    </select>
+</div>
+<div><button id="elegido">Quien te tocará?</button></div>
+<div id="resultado"></div>
+<div class="close"><span id="cerrado"></span></div>
+</div>
 </body>
+<script src="/js/encontrarAmigo.js"></script>
 </html>

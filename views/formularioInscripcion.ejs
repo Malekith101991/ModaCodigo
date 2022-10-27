@@ -14,79 +14,59 @@
 
   <h2>Regístrate en el Amigo Secreto 2022</h2>
 
-  <form action="/users/formulario" method="post" id="userRegisterForm">
+  <form action="/users/formulario/" method="post" id="userRegisterForm">
       <ul>
 
        <li>
-         <label for="name">Nombre:</label>
+         <label for="name">¿Cuál es tu nombre?</label>
          <input type="text" id="name" name="name">
        </li><br>
 
        <li>
-         <label for="password">Contraseña:</label>
+         <label for="password">Digita una contraseña:</label>
          <input type="password" id="password" name="contrasena">
        </li><br>
-       
-       <select class="rol" data-label="rol" name="rol">
-           <option disabled selected>Seleccionar rol</option>
-           <option class="a" value="admin">Administrador</option>
-           <option class="p" value="participante">Participante</option>
-
-       </select><br>
-       <div class="admin">
        <li>
-          <label for="topicGroup">Tema del Amigo Secreto:</label>
-          <input type="text" id="topicGroup" name="topicGroup">
-        </li><br>
-       <li>
-         <label for="NameGroup">Nombre del grupo:</label>
-         <textarea id="msg" name="nameGroup"></textarea>
-       
+        <label forr="email">¿Cuál es tu Email?</label>
+        <input type="email" name="email">
        </li><br>
-       <li>
-          <label for="fecha">Fecha Endulzada 1:</label>
-          <input type="date" name="fechaEndulzada1" data-label="fechaEndulzada1">
-        </li><br>
-        <li>
-          <label for="msg">Valor Endulzada 1:</label>
-          <input type="text" name="valorEndulzada1" data-label="valorEndulzada1">
-        </li><br>
 
-        <li>
-          <label for="fecha">Fecha Endulzada 2:</label>
-          <input type="date" name="fechaEndulzada2" data-label="fechaEndulzada2">
-        </li><br>
-        <li>
-          <label for="msg">Valor Endulzada 2:</label>
-          <input type="text" name="valorEndulzada2" data-label="valorEndulzada2">
-        </li><br>
-       <li>
+       <label for="">¿Cuál es tu rol dentro de este grupo?:</label>
+          <select name="rol">
+            <option disabled selected>Seleccionar rol</option>
+            <option class="a" value="admin">Administrador</option>
+            <option class="p" value="participante">Participante</option>
+          </select><br><br>
+       
+      <label for="">¿Cuál es el nombre de tu grupo?</label>
+      <select class="group_id" data-label="group_id" name="group_id">
+        <option selected disabled>Seleciona tu grupo...</option> 
+        
+        <% grupo.forEach(g => { %>  
+        <option value="<%= g.id %>"   ><%= g.nameGroup %></option>
+        <% }); %>
 
-        <li class="inputBox">
-          <label>Descubrimiento</label>
-          <input type="date" name="fechaDescubrimiento" data-label="fechaDescubrimiento">
-          <i></i>  
-        </li><br>
-        <li>
-          <label for="msg">Valor Descubrimiento:</label>
-          <input type="text" name="valorDescubrimiento" data-label="valorDescubrimiento">
-        </li><br>
-        </div>  <br>                    
-      
-        <li class="inputBox">
-          <textarea placeholder="Gustos" type="text" name="likes" data-label="likes"></textarea>
-          <i></i>                        
-        </li><br>
+    </select><br><br>
 
-        <li class="inputBox">
-          <textarea placeholder="Disgustos" type="text" name="dislikes" data-label="dislikes"></textarea>
-          <i></i>                        
-        </li><br>
-
-        <li class="inputBox">
-          <textarea placeholder="Alergias" type="text" name="allergies" data-label="allergies"></textarea>
-          <i></i>                        
-        </li><br>
+       
+         <li class="inputBox" type="none">
+           <label>Gustos:</label>
+           <textarea  type="text" name="likes" data-label="likes"></textarea>
+           <i></i>
+           </li><br>
+  
+         <li class="inputBox" type="none">
+           <label>Disgustos:</label>
+           <textarea  type="text" name="dislikes" data-label="dislikes"></textarea>
+           <i></i>                        
+         </li><br>
+  
+         <li class="inputBox" type="none">
+           <label>Alergias:</label>
+           <textarea  type="text" name="allergies" data-label="allergies"></textarea>
+           <i></i>                        
+         </li><br>
+  
 
          <!--BOTONES REGISTRAR Y YA TENGO CUENTA-->
                   

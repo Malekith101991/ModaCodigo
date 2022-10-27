@@ -2,10 +2,11 @@ const express = require("express");
 const router = express.Router();
 const userController = require("../Controllers/userController.js");
 
-router.get("/formulario", userController.formularioInscripcion);
+router.get('/grupos', userController.nuevoGrupo);
+router.post('/grupos', userController.crearGrupo);
+router.get('/formulario', userController.nuevoUsuario)
+router.post('/formulario', userController.crearUsuario)
 
-router.post('/formulario', userController.createUser);
-//router.get('/felicitaciones', userController.felicitaciones);
 
 
 module.exports = router;

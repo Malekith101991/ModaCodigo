@@ -12,32 +12,14 @@ module.exports = (sequelize, dataTypes) => {
         contrasena: {
             type: dataTypes.STRING
         },
+        email: {
+            type: dataTypes.STRING
+        },
         rol: {
             type: dataTypes.STRING
         },
-        topicGroup: {
-            type: dataTypes.STRING
-        }
-        ,
-        nameGroup: {
-            type: dataTypes.STRING
-        },
-        fechaEndulzada1: {
-            type: dataTypes.DATE
-        },
-        valorEndulzada1: {
-            type: dataTypes.STRING
-        },
-        fechaEndulzada2: {
-            type: dataTypes.DATE
-        },
-        valorEndulzada2: {
-            type: dataTypes.STRING
-        },
-        fechaDescubrimiento: {
-            type: dataTypes.DATE
-        },
-        valorDescubrimiento: {
+        
+        group_id: {
             type: dataTypes.STRING
         },
         likes: {
@@ -55,5 +37,11 @@ module.exports = (sequelize, dataTypes) => {
     }
     const User = sequelize.define(alias, cols, config);
 
+    User.associate = function (models) {
+        User.belongsTo(models.Group,{
+            as: "group",
+            foreignKey: "group_id"
+        })
+    }
     return User
 }

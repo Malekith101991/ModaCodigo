@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,23 +10,62 @@
 </head>
 <!-- MENU NAVEGACIÓN -->
 <%- include("./partials/header.ejs")%>
-<body>
-    <h1>Ahora encuentra tu Amigo Secreto Código Moda</h1>
 
-<div class="select-wrap" id="personaEnvuelta">
-    <div class="opciones">
-    <% users.forEach(g => { %>  
-     <option value="<%= g.id %>"  class="option" id="<% g.name%>"><%= g.name %></option>
-     <% }); %>
-    </div>
-    <select id="persona">
-        <span class="arrow"></span>
-    </select>
-</div>
-<div><button id="elegido">Quien te tocará?</button></div>
-<div id="resultado"></div>
-<div class="close"><span id="cerrado"></span></div>
-</div>
-</body>
-<script src="/js/encontrarAmigo.js"></script>
+    <body>
+        <h1>Ahora encuentra tu Amigo Secreto Código Moda</h1>
+
+        
+
+        <div class="select-wrap" id="personaEnvuelta">
+            <select class="group_id" data-label="group_id" name="group_id">
+                <option selected disabled>Seleciona tu grupo...</option> 
+                
+                <% grupo.forEach(g => { %>  
+                <option value="<%= g.id %>"   ><%= g.nameGroup %></option>
+                <% }); %>
+        
+            </select>
+        </div>
+ 
+        
+        <% let grupos = document.getElementById('group_id') %>
+        <% let usuarios = document.getElementById('persona') %>
+        <% let grupoSeleccionado = grupos.value %>
+        
+        <% usuarios.innerHTML = '<option value= "">Seleccione un participante </option> %>
+        
+        <% let Participantes =  users.forEach(g=> { %>
+            <option value="<%= g.group_id %>" class="option" id="<% g.name%>">
+                <%= g.name %>
+            </option>
+            <% }); %> 
+
+
+        <% if(grupoSeleccionado !== ""){ %>
+           <% grupoSeleccionado = Participantes[grupoSeleccionado] %>
+           <% grupoSeleccionado.sort() %> 
+            <div class="select-wrap" id="personaEnvuelta">
+                <div class="opciones">
+                    <% users.forEach(g=> { %>
+                        <option value="<%= g.group_id %>" class="option" id="<% g.name%>">
+                            <%= g.name %>
+                        </option>
+                        <% }); %>
+                </div>
+                <select id="persona">
+                    <span class="arrow"></span>
+                </select>
+            </div>
+            <% } %>
+            
+
+        
+
+        <div><button id="elegido">Quien te tocará?</button></div>
+        <div id="resultado"></div>
+        <div class="close"><span id="cerrado"></span></div>
+        </div>
+    </body>
+    <script src="/js/encontrarAmigo.js"></script>
+
 </html>

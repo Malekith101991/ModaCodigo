@@ -51,9 +51,12 @@ const userController = {
             })
     },
     buscarAmigo: (req, res) => {
-        db.User.findAll()
-        .then((users) => {
-            return res.render('felicitaciones', { users })
+        let usuarios = db.User.findAll()
+        let groups = db.Group.findAll()
+        
+        Promise.all([usuarios, groups])
+        .then(([users, grupo]) => {
+            return res.render('felicitaciones', { users, grupo })
         })
     }
 }

@@ -7,8 +7,9 @@
     "test": "nodemon src/app.js"
   },
   "dependencies": {
+    "ejs": "^3.1.8",
     "express": "^4.18.2",
-    "express-generator": "^4.16.1",
+    "express-generator": "^4.14.1",
     "mysql2": "^2.3.3",
     "node": "^19.0.0",
     "nodemon": "^2.0.20",

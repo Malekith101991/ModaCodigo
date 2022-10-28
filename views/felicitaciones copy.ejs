@@ -16,36 +16,30 @@
 
         
 
-        <label for="">¿Cuál es el nombre de tu grupo?</label>
+        <div class="select-wrap" id="personaEnvuelta">
             <select class="group_id" data-label="group_id" name="group_id">
                 <option selected disabled>Seleciona tu grupo...</option> 
                 
-                <% let idGroups = [] %> 
-                    <% grupo.forEach(g => { %>  
-                <option value="<%= g.id %>"   ><%= g.nameGroup %></option>     
-                <% idGroups.push(g.id) %> 
+                <% grupo.forEach(g => { %>  
+                <option value="<%= g.id %>"   ><%= g.nameGroup %></option>
                 <% }); %>
-                <%console.log(idGroups)%>
-
-             </select>
+        
+            </select>
+        </div>
  
-    
         
-        <label for="">¿Cuál es tu nombre?</label>
-        <select class="participante" data-label="participante" name="participante">
-            <option selected disabled>¿Cuál es tu nombre?</option> 
-            <option>
-                <% let Participantes =  users.forEach(g=> { %>
-                <% if(g.group_id == idGroups) {%>
-                    <option>users.name</option>  
-                <% }}); %>
-            </option>        
-         </select>
-             
+        <% let grupos = document.getElementById('group_id') %>
+        <% let usuarios = document.getElementById('persona') %>
+        <% let grupoSeleccionado = grupos.value %>
         
-            <% let grupos = document.getElementById('group_id') %>
-            <% let usuarios = document.getElementById('persona') %>
-            <% let grupoSeleccionado = grupos.value %>
+        <% usuarios.innerHTML = '<option value= "">Seleccione un participante </option> %>
+        
+        <% let Participantes =  users.forEach(g=> { %>
+            <option value="<%= g.group_id %>" class="option" id="<% g.name%>">
+                <%= g.name %>
+            </option>
+            <% }); %> 
+
 
         <% if(grupoSeleccionado !== ""){ %>
            <% grupoSeleccionado = Participantes[grupoSeleccionado] %>
@@ -67,11 +61,11 @@
 
         
 
-        <div><button id="elegido">Quien te tocará?</button></div>
+        <div><button id="elegido">¿Quién te tocará?</button></div>
         <div id="resultado"></div>
         <div class="close"><span id="cerrado"></span></div>
         </div>
     </body>
-    <script src="/js/encontrarAmigo.js"></>
+    <script src="/js/encontrarAmigo.js"></script>
 
 </html>

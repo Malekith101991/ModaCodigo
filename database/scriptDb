@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-10-2022 a las 23:44:41
+-- Tiempo de generación: 29-10-2022 a las 05:34:09
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -41,18 +41,6 @@ CREATE TABLE `groups` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `groups`
---
-
-INSERT INTO `groups` (`id`, `nameGroup`, `topicGroup`, `fechaEndulzada1`, `valorEndulzada1`, `fechaEndulzada2`, `valorEndulzada2`, `fechaDescubrimiento`, `valorDescubrimiento`, `lugarDescubrimiento`) VALUES
-(1, 'Estresados', 'Cursos de prog', '2022-10-27', 5000, '2022-10-28', 5000, '2022-10-29', 300000, NULL),
-(2, 'Perseverantes', 'Té ', '2022-10-27', 5000, '2022-10-28', 5000, '2022-10-29', 300000, NULL),
-(3, 'Mercadeo', 'Pantalonetas', '2022-10-27', 5000, '2022-10-28', 5000, '2022-10-29', 300000, NULL),
-(4, 'Cansados', 'Bebida energetica', '2022-10-27', 5000, '2022-10-28', 5000, '2022-10-29', 300000, 'Parque');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `users`
 --
 
@@ -68,52 +56,19 @@ CREATE TABLE `users` (
   `allergies` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `users`
---
 
-INSERT INTO `users` (`id`, `name`, `contrasena`, `email`, `rol`, `group_id`, `likes`, `dislikes`, `allergies`) VALUES
-(2, 'Salomon', '245352131', 'mate@g.com', NULL, 1, 'fe', 'ef', 'de'),
-(3, 'Mateo', '434213fassda', 'mate@g.com', 'admin', 1, 'chocolate', 'fresas', 'almendras'),
-(4, 'Juan', '23543123ew', 's@g.com', 'admin', 2, 'Hamburguesa, frunas', 'Mora', 'Maní'),
-(5, 'Santia', '432wer32', 'mate@g.com', 'participante', 2, '3qweq', '2eqw', 'e21ew'),
-(6, 'Marcela', '3423412', 'mate@g.com', 'participante', 1, 'edwq', 'dqwd', 'qwdqw'),
-(15, 'Samira', '2412123', 'mate@g.com', 'participante', 2, 'dsdsas', 'dasdas', 'dassda'),
-(16, 'Neo', '43121', 'mate@g.com', 'admin', 2, 'Triniti', 'Agente Smith', 'Morfeo');
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `groups`
---
 ALTER TABLE `groups`
   ADD PRIMARY KEY (`id`);
 
---
--- Indices de la tabla `users`
---
+
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
---
--- AUTO_INCREMENT de las tablas volcadas
---
+ALTER TABLE `amigo_secreto`.`users` 
+ADD INDEX `grupos_idx` (`group_id` ASC) VISIBLE;
+;
+ALTER TABLE `amigo_secreto`.`users` 
+ADD CONSTRAINT `grupos`
+  FOREIGN KEY (`group_id`)
+  REFERENCES `amigo_secreto`.`groups` (`id`)
 
---
--- AUTO_INCREMENT de la tabla `groups`
---
-ALTER TABLE `groups`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT de la tabla `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

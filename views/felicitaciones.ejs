@@ -13,48 +13,16 @@
 
     <body>
         <h1>Ahora encuentra tu Amigo Secreto Código Moda</h1>
-
-        
-
-        <label for="">¿Cuál es el nombre de tu grupo?</label>
-            <select class="group_id" data-label="group_id" name="group_id">
-                <option selected disabled>Seleciona tu grupo...</option> 
-                
-                <% let idGroups = [] %> 
-                    <% grupo.forEach(g => { %>  
-                <option value="<%= g.id %>"   ><%= g.nameGroup %></option>     
-                <% idGroups.push(g.id) %> 
-                <% }); %>
-                <%console.log(idGroups)%>
-
-             </select>
- 
-    
-        
-        <label for="">¿Cuál es tu nombre?</label>
-        <select class="participante" data-label="participante" name="participante">
-            <option selected disabled>¿Cuál es tu nombre?</option> 
-            <option>
-                <% let Participantes =  users.forEach(g=> { %>
-                <% if(g.group_id == idGroups) {%>
-                    <option>users.name</option>  
-                <% }}); %>
-            </option>        
-         </select>
-             
-        
-            <% let grupos = document.getElementById('group_id') %>
-            <% let usuarios = document.getElementById('persona') %>
-            <% let grupoSeleccionado = grupos.value %>
-
-        <% if(grupoSeleccionado !== ""){ %>
-           <% grupoSeleccionado = Participantes[grupoSeleccionado] %>
-           <% grupoSeleccionado.sort() %> 
+        <h2>Tu grupo es: <%= group.nameGroup %> </h2>
+        <p>La fecha de la primera endulzada es: <strong><%= group.fechaEndulzada1 %></strong> y el valor es de <strong><%= group.valorEndulzada1 %></strong></p>
+        <p>La fecha de la segunda endulzada es: <strong><%= group.fechaEndulzada2 %></strong> y el valor es de <strong><%= group.valorEndulzada2 %></strong></p>
+        <p>La fecha del descubrimiento es: <strong><%= group.fechaDescubrimiento %></strong>, el valor es de <strong><%= group.valorDescubrimiento %></strong> y el lugar es en <strong><%= group.lugarDescubrimiento %></strong></p>
             <div class="select-wrap" id="personaEnvuelta">
                 <div class="opciones">
-                    <% users.forEach(g=> { %>
-                        <option value="<%= g.group_id %>" class="option" id="<% g.name%>">
-                            <%= g.name %>
+                   
+                    <% users.forEach((u) => { %>
+                        <option value="<%= u.id %>" class="option" id="<% u.name%>">
+                            <%= u.name %>
                         </option>
                         <% }); %>
                 </div>
@@ -62,16 +30,12 @@
                     <span class="arrow"></span>
                 </select>
             </div>
-            <% } %>
-            
-
-        
-
-        <div><button id="elegido">Quien te tocará?</button></div>
-        <div id="resultado"></div>
-        <div class="close"><span id="cerrado"></span></div>
+        <div><button id="elegido">¿Quién es mi amigo secreto?</button></div>
+        <div id="resultado">
         </div>
+        <div class="close"><span id="cerrado"></span></div>
+        <a href="/users/usuarios">Aqui encontraras los gustos, disgustos y alergias de tu amigo secreto!</a>
     </body>
-    <script src="/js/encontrarAmigo.js"></>
+    <script src="/js/encontrarAmigo.js"></script>
 
 </html>

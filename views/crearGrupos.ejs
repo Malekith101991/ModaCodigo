@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amigo Secreto Código Moda</title>
+</head>
+<!-- MENU NAVEGACIÓN -->
+<%- include("./partials/header.ejs")%>
+
+    <body>
+      <h2>Regístra tu grupo en el Amigo Secreto 2022</h2>
+        <form action="/users/grupos" method="post">
+        <div>
+            <label for="nameGroup">Nombre del grupo:</label>
+            <input type="text" id="nameGroup" name="nameGroup">
+          
+          </div><br>
+        <div>
+          <label for="topicGroup">Tema del Amigo Secreto:</label>
+          <input type="text" id="topicGroup" name="topicGroup">
+        </div><br>
+
+        <div>
+            <label for="fecha">Fecha Endulzada 1:</label>
+            <input type="date" name="fechaEndulzada1" data-label="fechaEndulzada1">
+          </div><br>
+          <div>
+            <label for="msg">Valor Endulzada 1:</label>
+            <input type="text" name="valorEndulzada1" data-label="valorEndulzada1">
+          </div><br>
+  
+          <div>
+            <label for="fecha">Fecha Endulzada 2:</label>
+            <input type="date" name="fechaEndulzada2" data-label="fechaEndulzada2">
+          </div><br>
+          <div>
+            <label for="msg">Valor Endulzada 2:</label>
+            <input type="text" name="valorEndulzada2" data-label="valorEndulzada2">
+          </div><br>
+  
+          <div class="inputBox">
+            <label>Descubrimiento</label>
+            <input type="date" name="fechaDescubrimiento" data-label="fechaDescubrimiento">
+            <i></i>  
+          </div><br>
+          <div>
+            <label for="msg">Valor Descubrimiento:</label>
+            <input type="text" name="valorDescubrimiento" data-label="valorDescubrimiento">
+          </div><br>
+          <br>
+          <div>
+            <label for="msg">Lugar descubrimiento:</label>
+            <input type="text" name="lugarDescubrimiento" data-label="lugarDescubrimiento">
+          </div><br>
+                <button type="submit">Crear grupo</button>    
+                </form>
+    </body>
+</html>
+

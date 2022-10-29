@@ -21,7 +21,7 @@ var persona = document.getElementById('persona');
 var elegido = document.getElementById('elegido');
 var resultado = document.getElementById('resultado');
 var cerrado = document.getElementById('cerrado');
-
+console.log(resultado);
 
 
 

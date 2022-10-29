@@ -8,8 +8,8 @@ router.get('/formulario', userController.nuevoUsuario);
 router.post('/formulario', userController.crearUsuario);
 router.get('/felicitaciones/:id', userController.buscarAmigo);
 router.get('/grupos', userController.elegirGrupo);
-router.get('/usuarios', userController.usuarios);
-
+router.get('/usuarios/:id', userController.usuarios);
+router.get('/usuario/:id',userController.detailUsuario);
 
 
 module.exports = router;

@@ -71,15 +71,20 @@ const userController = {
     },
     usuarios: (req, res) => {
         let grupoId = req.params.id;
-        let promGrupos = db.Group.findByPk(grupoId);
-        let promUsuarios = db.User.findAll({
+        db.User.findAll({
             where: {
                 group_id: grupoId
             }
         })
-        Promise.all([promUsuarios, promGrupos])
-        .then(([users])=> {
-            return res.render('usuarios', { users })
+        .then((users)=> {
+            return res.render('usuarios' , { users })
+        })
+    },
+    detailUsuario: (req, res) => {
+        let usuarioId = req.params.id;
+        db.User.findByPk(usuarioId)
+        .then((user) => {
+            res.render('usuario', { user })
         })
     }
 }

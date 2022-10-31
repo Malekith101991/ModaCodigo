@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    font-family: 'Poppins', 'roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.cajaPpal{
+    margin-top: 50px;
+}
+
+.cajaSeg{
+    margin-top: 30px;
+}
+
+.numerales{
+    color: #54c0e8;
+}
+
+.instrucciones {
+    padding-right: 100px;
+    padding-left: 100px;
+}
+
+
+
+/* ---------------- SLIDE ---------- */
+
+#carouselExampleIndicators{
+    padding-top: 80px;
+}
+
+.carousel-control-prev {
+    display: none;
+    margin-top: 0px;
+    left: 50px;
+}
+
+.carousel-control-next {
+    display: none;
+    margin-top: 0px;
+    
+}
+
+.carousel-indicators{
+    margin-bottom: 0 !important;
+}
+
+h1, h3  {
+    color: #003057 ;
+}
+
+/* ---------------- PIE DE PAGINA ---------- */
+
+.Sfooter{
+    width: 100%;
+    background-color: #003057;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    bottom: 0;
+}
+
+.Smapa{
+  flex-direction: column;
+  display: flex;
+
+}
+
+.Smapa a:hover{
+  color: #00B8D4;
+}
+
+.Sfooter div{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 30%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.Sfooter img{
+    width: 80%;
+}
+
+.Sfooter h3 {
+  font-weight: 200;
+  font-size: 1.75em;
+  color: #00B8D4;
+  letter-spacing: 1px;
+  margin-bottom: 18px;
+}
+
+.Smapa a{
+  margin: 2px;
+}
+
+.Sfooter p{
+    margin-top: 15px;
+    color: #ffffff;
+}
+
+
+
+
+
+
+

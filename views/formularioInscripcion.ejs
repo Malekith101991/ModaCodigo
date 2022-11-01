@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Inscripción Amigo Secreto Código Moda</title>
     <link rel="stylesheet" href="/css/formularioIncripcion.css" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>Inscribe tu grupo</title>
 </head>
   
 
@@ -14,68 +17,78 @@
 <!-- MENU NAVEGACIÓN -->
 <%- include("./partials/header.ejs")%>
 
-  <h2>Regístrate en el Amigo Secreto 2022</h2>
+<section class="Jbackground">
 
-  <form action="/users/formulario/" method="post" id="userRegisterForm">
-      <ul>
+  <div class="box">
+    <form action="/users/formulario/" method="post" id="userRegisterForm">
+      
+      <!----CAJA DE FORMULARIO----->
 
-       <li>
-         <label for="name">¿Cuál es tu nombre?</label>
-         <input type="text" id="name" name="name">
-       </li><br>
+      <div class="form">
 
-       <li>
-        <label forr="email">¿Cuál es tu Email?</label>
-        <input type="email" name="email">
-       </li><br>
+        <h2>Regístrate en el Amigo Secreto 2022</h2>
 
-       <label for="">¿Cuál es tu rol dentro de este grupo?:</label>
-          <select name="rol">
-            <option disabled selected>Seleccionar rol</option>
-            <option class="a" value="admin">Administrador</option>
-            <option class="p" value="participante">Participante</option>
-          </select><br><br>
+       <div class="inputBox">
+            <label for="name"><strong>¿Cuál es tu nombre?</strong></label>
+            <input type="text" id="name" name="name">
+       </div>
+
+       <div class="inputBox">
+            <label forr="email"><strong>¿Cuál es tu Email?</strong></label>
+            <input type="email" name="email">
+       </div>
+
+       <div class="inputBox">
+            <label for=""><strong>¿Cuál es tu rol dentro de este grupo?:</strong></label>
+                <select name="rol">
+                    <option disabled selected>Seleccionar rol</option>
+                    <option class="a" value="admin">Administrador</option>
+                    <option class="p" value="participante">Participante</option>
+                </select>
+       </div><br>
        
-      <label for="">¿Cuál es el nombre de tu grupo?</label>
-      <select class="group_id" data-label="group_id" name="group_id">
-        <option selected disabled>Seleciona tu grupo...</option> 
-        
-        <% grupo.forEach(g => { %>  
-        <option value="<%= g.id %>"   ><%= g.nameGroup %></option>
-        <% }); %>
+       <div class="inputBox">
+            <label for=""><strong>¿Cuál es el nombre de tu grupo?</strong></label>
+                <select class="group_id" data-label="group_id" name="group_id">
+                    <option selected disabled>Seleciona tu grupo...</option> 
+                      <% grupo.forEach(g => { %>  
+                    <option value="<%= g.id %>"   ><%= g.nameGroup %></option>
+                      <% }); %>
 
-    </select><br><br>
+                </select><br>
+       </div>
 
-       
-         <li class="inputBox" type="none">
-           <label>Gustos:</label>
-           <textarea  type="text" name="likes" data-label="likes"></textarea>
-           <i></i>
-           </li><br>
+       <div class="inputBox">
+            <label><strong>Gustos:</strong></label>
+              <textarea  type="text" name="likes" data-label="likes"></textarea>
+       </div>
   
-         <li class="inputBox" type="none">
-           <label>Disgustos:</label>
-           <textarea  type="text" name="dislikes" data-label="dislikes"></textarea>
-           <i></i>                        
-         </li><br>
+       <div class="inputBox">
+            <label><strong>Disgustos:</strong></label>
+              <textarea  type="text" name="dislikes" data-label="dislikes"></textarea>                        
+       </div>
   
-         <li class="inputBox" type="none">
-           <label>Alergias:</label>
-           <textarea  type="text" name="allergies" data-label="allergies"></textarea>
-           <i></i>                        
-         </li><br>
+       <div class="inputBox">
+            <label><strong>Alergias:</strong></label>
+              <textarea  type="text" name="allergies" data-label="allergies"></textarea>                        
+       </div>
   
 
-         <!--BOTONES REGISTRAR Y YA TENGO CUENTA-->
+        <!--BOTONES REGISTRAR Y YA TENGO CUENTA-->
                   
-         <button type="submit">Enviar Inscripción</button>    
-  
-         <a class = "registered" href="/user/login">Ya tengo una cuenta</a>
+        <input type="submit" value="Registrarse"></input>     
 
-  </form>
+        <a class="registered" href="/user/login">Ya tengo una cuenta</a>
+
+      </div> 
+
+    </form>
+
+  </div>
+  
+</section>
 
     <!--- FOOTER: PIE DE PÁGINA --->
-  
     <%- include("./partials/footer.ejs")%>
 
 </body>

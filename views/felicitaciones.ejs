@@ -1,41 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Felicitaciones</title>
-    <link rel="stylesheet" href="/css/felicitaciones.css">
+    <link rel="stylesheet" href="/css/felicitaciones.css" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>Encuentra tu Amigo Secreto</title>
 </head>
+
+
 <!-- MENU NAVEGACIÓN -->
+
 <%- include("./partials/header.ejs")%>
 
-    <body>
-        <h1>Ahora encuentra tu Amigo Secreto Código Moda</h1>
-        <h2>Tu grupo es: <%= group.nameGroup %> </h2>
-        <p>La fecha de la primera endulzada es: <strong><%= group.fechaEndulzada1 %></strong> y el valor es de <strong><%= group.valorEndulzada1 %></strong></p>
-        <p>La fecha de la segunda endulzada es: <strong><%= group.fechaEndulzada2 %></strong> y el valor es de <strong><%= group.valorEndulzada2 %></strong></p>
-        <p>La fecha del descubrimiento es: <strong><%= group.fechaDescubrimiento %></strong>, el valor es de <strong><%= group.valorDescubrimiento %></strong> y el lugar es en <strong><%= group.lugarDescubrimiento %></strong></p>
-            <div class="select-wrap" id="personaEnvuelta">
-                <div class="opciones">
-                   
-                    <% users.forEach((u) => { %>
-                        <option value="<%= u.id %>" class="option" id="<% u.name%>">
-                            <%= u.name %>
-                        </option>
-                        <% }); %>
-                </div>
-                <select id="persona">
-                    <span class="arrow"></span>
-                </select>
-            </div>
-        <div><button id="elegido">¿Quién es mi amigo secreto?</button></div>
-        <div id="resultado">
-        </div>
-        <div class="close"><span id="cerrado"></span></div>
-        <a href="/users/usuarios/<%= group.id %>">Aqui encontraras los gustos, disgustos y alergias de tu amigo secreto!</a>
-    </body>
-    <script src="/js/encontrarAmigo.js"></script>
+<body>
 
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <div>
+    
+    <main class="d-flex justify-content-center">
+
+        <section>
+            <div>
+                <h1>Ahora encuentra tu Amigo Secreto Código Moda</h1>
+                <hr>
+                <div class="card-body p-2">
+                    <h4><strong>Grupo: </strong><%= group.nameGroup %></h4>
+                    <p><strong>Pautas del grupo: </strong></p>
+                    <p><strong>Tema: </strong><%= group.topicGroup %></p>
+                    <p><strong>Fecha primera endulzada: </strong><%= group.fechaEndulzada1 %></p>
+                    <p><strong>Valor primera endulzada: </strong><%= group.valorEndulzada1 %></p>
+                    <p><strong>Fecha segunda endulzada: </strong><%= group.fechaEndulzada2 %></p>
+                    <p><strong>Valor segunda endulzada: </strong><%= group.valorEndulzada2 %></p>
+                    <p><strong>Fecha Descubrimiento: </strong><%= group.fechaDescubrimiento %></p>
+                    <p><strong>Valor Descubrimiento: </strong><%= group.valorDescubrimiento %></p>
+                    <p><strong>Lugar Descubrimiento: </strong><%= group.lugarDescubrimiento %></p>
+                    
+                    <div class="select-wrap" id="personaEnvuelta">
+                        <div class="opciones">
+                        </div>
+                        <select id="persona">
+                            <% users.forEach((u) => { %>
+                                <option value="<%- u.id %>" class="option" id="<%- u.name%>">
+                                    <%- u.name %>
+                                </option>
+                                <% }); %>
+                            <span class="arrow"></span>
+                        </select>
+                        <br>
+                    </div>
+                <div class="pt-3"><button id="elegido" class="btn btn-outline w-100" >¿Quién es mi amigo secreto?</button></div>
+                <div class="pt-3" id="resultado">
+                </div>
+                
+               <div class="pt-3"><a class="btn btn-outline w-100" href="/users/usuarios/<%= group.id %>">Perfil de mi Amigo Secreto</a></div>
+                    
+                       
+                </div>
+            </div>
+        </section>
+
+    </main>
+<div class="footer"></div>
+    <!--- FOOTER: PIE DE PÁGINA --->
+<%- include("./partials/footer.ejs")%>
+</div>
+</body>
+<script src="/js/encontrarAmigo.js"></script>
 </html>

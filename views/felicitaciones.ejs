@@ -41,16 +41,18 @@
                     <p><strong>Fecha Descubrimiento: </strong><%= group.fechaDescubrimiento %></p>
                     <p><strong>Valor Descubrimiento: </strong><%= group.valorDescubrimiento %></p>
                     <p><strong>Lugar Descubrimiento: </strong><%= group.lugarDescubrimiento %></p>
-                    
+                </div>
                     <div class="select-wrap" id="personaEnvuelta">
                         <div class="opciones">
-                        </div>
-                        <select id="persona">
+                       
+                        
                             <% users.forEach((u) => { %>
                                 <option value="<%- u.id %>" class="option" id="<%- u.name%>">
                                     <%- u.name %>
                                 </option>
                                 <% }); %>
+                        </div>
+                          <select id="persona">
                             <span class="arrow"></span>
                         </select>
                         <br>
@@ -58,7 +60,7 @@
                 <div class="pt-3"><button id="elegido" class="btn btn-outline w-100" >¿Quién es mi amigo secreto?</button></div>
                 <div class="pt-3" id="resultado">
                 </div>
-                
+                <div class="close"><span id="cerrado"></span></div>
                <div class="pt-3"><a class="btn btn-outline w-100" href="/users/usuarios/<%= group.id %>">Perfil de mi Amigo Secreto</a></div>
                     
                        

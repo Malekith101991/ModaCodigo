@@ -9,6 +9,10 @@
     box-sizing: border-box;
 }
 
+.opciones{
+  display: none;
+}
+
 .cajaG {
     justify-content: center;
 }

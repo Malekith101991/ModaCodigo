@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  amigos:
+    build: .
+    ports:
+      - "3080:3080"
+    links:
+      - SQLMovies
+  SQLMovies:
+    image: mysql
+    ports:
+      - "33060:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=1717
+    volumes:
+      - mysql-data:/var/lib/mysql
+volumes:
+  mysql-data:
